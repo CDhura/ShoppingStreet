@@ -1,6 +1,4 @@
-# Relicサマーインターン（26卒）のサンプルアプリ AAA 
-BBB
-fff
+# Relicサマーインターン（26卒）のサンプルアプリ 
 
 ## 初回セットアップ手順（上から順番に実行）
 
@@ -22,6 +20,7 @@ docker-compose up -d
 docker-compose exec laravel.test php artisan key:generate
 docker-compose exec laravel.test php artisan migrate:fresh
 docker-compose exec laravel.test npm install
+docker-compose exec laravel.test npm audit fix（2025年1月9日追加）
 docker-compose exec laravel.test npm run dev
 ```
 
