@@ -24,8 +24,28 @@ npm install -g npm@11.0.0
 ./vendor/bin/sail npm run dev
 ```
 
-
 ここまで実行すると http://localhost/ でアプリにアクセスできます
+
+## エラーが発生した場合
+
+```sh
+# 以下のコマンドを実行する際にエラーが起きた場合：
+./vendor/bin/sail artisan migrate:fresh --seed
+
+# 以下を行ってください
+./vendor/bin/sail down --volumes
+
+# その後、再度以下を実行してください
+./vendor/bin/sail up -d
+./vendor/bin/sail artisan key:generate
+./vendor/bin/sail artisan migrate:fresh --seed
+./vendor/bin/sail npm install
+npm install -g npm@11.0.0
+./vendor/bin/sail npm run dev
+```
+
+
+
 
 ## 2回目以降の起動方法
 
