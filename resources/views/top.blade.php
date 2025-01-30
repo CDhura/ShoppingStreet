@@ -36,7 +36,7 @@
     background-attachment: fixed;
 }
 
-.tytle3 {
+.title3 {
     font-size: 150px;
     padding-top: 150px;
     padding-bottom: 300px;
@@ -98,9 +98,9 @@
         <li class="dropdown">
             <a class="syou">商店街</a>
             <ul class="dropdown-menu">
-                <li><a href="{{ url('/home2') }}">旗の台東口通り商店街</a></li>
-                <li><a href="{{ url('/home') }}">西新道錦会商店街</a></li>
-                <li><a href="{{ url('/home3') }}">新町通り商店街</a></li>
+                <li><a href="{{ url('/home') }}">A商店街</a></li>
+                <li><a href="{{ url('/home2') }}">B商店街</a></li>
+                <li><a href="{{ url('/home3') }}">C商店街</a></li>
             </ul>
         </li>
         <li>
@@ -110,7 +110,7 @@
 </nav>
 
 
-    <h1 class="tytle3">地域商店街応援<br>ジモマップ</h1>
+    <h1 class="title3">地域商店街応援<br>ジモマップ</h1>
 
     <p class="scroll-indicator" id="scroll-indicator">下にスクロールしてください</p>
 
@@ -122,25 +122,27 @@
 
     <p class="invite_top">気になる商店街を選んで下のボタンをクリック！！</p>
     
-    <div class="button-container">
-        <a href="{{ url('/home1') }}" class="btn" id="slide-link">
-            <span>商店街を見てみる</span>
-        </a>
-    </div>
 
     <div class="slideshow-container">
         <div class="slide">
-            <img src="{{ asset('img/hata.jpg') }}" alt="Image 0" class="slide-image" data-tooltip="大阪～旗の台東口通り商店街～">
+            <img src="{{ asset('img/ShoppingDistrict1.jpg') }}" alt="A商店街" class="slide-image" data-tooltip="～A商店街～">
         </div>
         <div class="slide">
-            <img src="{{ asset('img/DSC.JPG') }}" alt="Image 2" class="slide-image" data-tooltip="京都～西新道錦会商店街～">
+            <img src="{{ asset('img/ShoppingDistrict2.jpg') }}" alt="B商店街（一部準備中）" class="slide-image" data-tooltip="～B商店街（一部準備中）～">
         </div>
         <div class="slide">
-            <img src="{{ asset('img/5.jpg') }}" alt="Image 3" class="slide-image" data-tooltip="大分～新町通り商店街～">
+            <img src="{{ asset('img/ShoppingDistrict3.jpg') }}" alt="C商店街（準備中）" class="slide-image" data-tooltip="～C商店街（準備中）～">
         </div>
 
         <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
         <button class="next" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+
+    
+    <div class="button-container">
+        <a href="{{ url('/home1') }}" class="btn" id="slide-link">
+            <span>この商店街を見る</span>
+        </a>
     </div>
 
     <script>

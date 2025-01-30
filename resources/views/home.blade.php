@@ -5,15 +5,20 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>西新道錦会商店街</title>
+    <title>A商店街</title>
     <style>
-          .background {
+        .home {
+            height: 100%;
+            background-attachment: fixed; /* 背景を固定 */
+            overflow: scroll; /*スクロールバーを常に表示 */
+        }
+        .background {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url("{{ asset('img/kyoto.png') }}");
+            background-image: url("{{ asset('img/ShoppingDistrict1.jpg') }}");
             background-size: cover;
             background-position: center;
             filter: blur(5px); /* 背景のみにぼかし効果を適用 */
@@ -25,10 +30,6 @@
             z-index: 1;
         }
 
-        .home {
-            height: 100%;
-            background-attachment: fixed; /* 背景を固定 */
-        }
         .TYTLE {
         font-family: 'HG行書体'; /* 行書体フォント */
         font-size: 90px;
@@ -69,14 +70,14 @@
         </ul>
     </nav>
 
-        <!-- <img src="{{ asset('img/arcade.png') }}" alt="商店街の画像" class="center_img">     -->
-        <h1 class="TYTLE"> 西新道錦会商店街</h1>
-<p class="invite">
-地元民に愛されて早半世紀<br>
-    歴史の町京都に根差した昔ながらの商店街<br>
-    
-    詳しくは下のページから！！
-</p>
+    <!-- <img src="{{ asset('img/arcade.png') }}" alt="商店街の画像" class="center_img">     -->
+    <h1 class="TYTLE"> A商店街</h1>
+    <p class="invite">
+    地元民に愛されて早半世紀<br>
+        歴史の町京都に根差した昔ながらの商店街<br>
+        
+        詳しくは下のページから！！
+    </p>
 
     <div class="content2">
         <div class="box_switch">

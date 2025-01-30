@@ -387,12 +387,15 @@ a.notirink:hover {
 .slide {
     display: none;
     text-align: center;
+    /* height: 150px; */
     position: relative; /* この要素を基準にボタンを配置 */
 }
 
 .slide-image {
     width: 30%;
     height: auto;
+    /* height: 5%;
+    width: auto; */
 }
 
 button {
@@ -512,7 +515,7 @@ button {
 .dropdown-menu li a {
     padding: 10px 15px;
     color: black;
-    white-space: nowrap;
+    bgspace: nowrap;
 }
 
 .dropdown:hover .dropdown-menu {
