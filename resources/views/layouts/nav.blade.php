@@ -9,7 +9,7 @@
 <style>
     
 .page {
-    background-image: url("{{ asset('img/ShoppingDistrict1.jpg') }}");
+    background-image: url("{{ asset('img/shopping-street-a.jpg') }}");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

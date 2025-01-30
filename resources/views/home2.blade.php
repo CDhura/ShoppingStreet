@@ -18,7 +18,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url("{{ asset('img/ShoppingDistrict2.jpg') }}");
+            background-image: url("{{ asset('img/shopping-street-b.jpg') }}");
             background-size: cover;
             background-position: center;
             filter: blur(5px); /* 背景のみにぼかし効果を適用 */
