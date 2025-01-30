@@ -146,6 +146,7 @@
     </div>
 
     <script>
+        
 window.addEventListener('scroll', function() {
     const scrollPosition = window.scrollY;
     const scrollIndicator = document.getElementById('scroll-indicator');

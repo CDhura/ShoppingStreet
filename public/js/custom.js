@@ -55,7 +55,7 @@ function showSlides(n) {
     const urls = [
         "/home",
         "/home2",
-        "/com"
+        "/coming"
     ];
     
     link.href = urls[slideIndex - 1];

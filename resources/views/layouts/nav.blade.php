@@ -9,7 +9,7 @@
 <style>
     
 .page {
-    background-image: url("{{ asset('img/kyoto.png') }}");
+    background-image: url("{{ asset('img/ShoppingDistrict1.jpg') }}");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -21,6 +21,7 @@
 
     background-color: rgba(255, 255, 255, 0.7); /* 半透明の白を背景色として設定 */
     background-blend-mode: lighten; /* 背景画像と背景色をブレンド */
+    overflow: scroll; /*スクロールバーを常に表示 */
 }
 </style>
 <body class="page">

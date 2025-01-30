@@ -1,16 +1,16 @@
 @extends('layouts.nav')
 
-@section('title', 'むら瀬')
+@section('title', 'お肉屋')
 
 @section('content')
     <div style="background-color: #ffffff;">
         <div style="font-size: 1px">　</div>
-        <h1 class='tytle'>むら瀬</h1>
+        <h1 class='tytle'>お肉屋</h1>
         <hr style="height: 2px; background-color: #C2A366; border: none;">
         <div style="font-size: 1px">　</div>
     </div>
     <h3 style="text-align: center;">
-        地元の皆さんにも愛される西新道錦会商店街の名物！<br>
+        地元の皆さんにも愛されるA商店街の名物！<br>
         皆さんも是非一度買いに来てください！！<br>
     </h3>
     
@@ -24,10 +24,10 @@
         <div style="font-size: 20px;">
             0123-45-6789<br>
             営業時間：9:00～18:00<br>
-            定休日：日曜日
+            定休日：土曜日
         </div>
         <div class="scheduleAndPicture_item">
-            <img src="{{ asset('img/murase_real.jpg') }}" usemap="#storemap" alt="Store Map" style="height: 50vh; width: auto;">
+            <img src="{{ asset('img/butcher.jpg') }}" usemap="#storemap" alt="Store Map" style="height: 50vh; width: auto;">
         </div>
         
     </div>
@@ -37,7 +37,7 @@
         メニュー（抜粋）
     </h2>
     <div class="menu-box">
-        <h3 style="text-align: center;">揚げもん</h3>
+        <h3 style="text-align: center;">揚げもの</h3>
         <ul>
             <li style="text-align: left">コロッケ</li>
             <li style="text-align: left">ミンチカツ</li>

@@ -36,47 +36,46 @@
                 <a href="{{ url('/') }}">トップ</a>
             </li>
             <li class="{{ Request::is('map') ? 'current' : '' }}">
-                <a href="{{ url('/map') }}">マップ</a>
+                <a href="{{ url('/coming') }}">マップ(準備中)</a>
             </li>
             <li class="{{ Request::is('notifications') ? 'current' : '' }}">
-                <a href="{{ url('/notifications') }}">お知らせ</a>
+                <a href="{{ url('/coming') }}">お知らせ(準備中)</a>
             </li>
             <li>
-                <a href="/access">アクセス</a>
+                <a href="{{ url('/coming') }}">アクセス(準備中)</a>
             </li>
         </ul>
     </nav>
 
-        <!-- <img src="{{ asset('img/arcade.png') }}" alt="商店街の画像" class="center_img">     -->
-        <h1 class="tytle2"> B商店街</h1>
-<p class="invite">
-〇〇市に位置する賑やかで親しみやすいエリアです。<br>
-地元の食材や日用品が揃う店舗が並び、地域密着型の温かい雰囲気が特徴。<br>
-レトロな魅力とともに、観光やショッピングにぴったりのスポットです。<br>
-    
-    詳しくは下のページから！！
-</p>
+    <!-- <img src="{{ asset('img/arcade.png') }}" alt="商店街の画像" class="center_img">     -->
+    <h1 class="tytle2"> B商店街</h1>
+    <p class="invite">
+        〇〇市に位置する賑やかで親しみやすいエリアです。<br>
+        地元の食材や日用品が揃う店舗が並び、地域密着型の温かい雰囲気が特徴。<br>
+        レトロな魅力とともに、観光やショッピングにぴったりのスポットです。<br>
+        詳しくは下のページから！！
+    </p>
 
     <div class="content2">
         <div class="box_switch">
-            <a href="{{ url('/map') }}">
-            <h3>MAP</h3>
+            <a href="{{ url('/coming') }}">
+            <h3>MAP(準備中)</h3>
             <p>商店街の並びが一目でわかる！<br>
             かわいいイラストマップ</p>
         </a>
         </div>
 
         <div class="box_switch">
-            <a href="{{ url('/notifications') }}">
-            <h3>お知らせ</h3>
+            <a href="{{ url('/coming') }}">
+            <h3>お知らせ(準備中)</h3>
             <p>商店街には話題がいっぱい！<br>
             記事を読んで商店街の魅力をもっと知ろう</p></a>
         </div>
 
         <div class="box_switch">
            
-            <a href="{{ url('/access') }}">
-            <h3>アクセス</h3>
+            <a href="{{ url('/coming') }}">
+            <h3>アクセス(準備中)</h3>
             <p>商店街への行き方や近くの駐車場などを紹介！<br>
             気軽に商店街まで来よう！</p></a>
         </div>

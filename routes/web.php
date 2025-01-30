@@ -33,7 +33,7 @@ Route::get('/home', function () {
 Route::get('/home2', function () {
     return view('home2');
 });
-Route::get('/com', function () {
+Route::get('/coming', function () {
     return view('coming');
 });
 
@@ -42,7 +42,7 @@ Route::get('/map', [MapController::class, 'index'])->name('map.index');
 Route::get('/access', [AccessController::class, 'index'])->name('access.index');
 Route::get('/hamburger', [MapController::class, 'hamburger'])->name('map.hamburger');
 Route::get('/shuttered1', [MapController::class, 'shuttered1'])->name('map.shuttered1');
-Route::get('/map/murase', [Mapcontroller::class, 'murase'])->name('map.murase');
+Route::get('/map/butcher', [Mapcontroller::class, 'butcher'])->name('map.butcher');
 // Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

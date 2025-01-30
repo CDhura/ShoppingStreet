@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>現在準備中です</h1>
     <h1>Coming soon</h1>
 </body>
 </html>

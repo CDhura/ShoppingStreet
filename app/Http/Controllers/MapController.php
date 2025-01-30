@@ -21,9 +21,9 @@ class MapController extends Controller
         return view('map.shuttered1'); 
     }
 
-    public function murase()
+    public function butcher()
     {
-        return view('map.murase');
+        return view('map.butcher');
     }
     
 }

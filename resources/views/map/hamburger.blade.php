@@ -14,7 +14,7 @@
     </ul>
 
     <h2>地元の皆さんにも愛されるOO商店街の名物<br>
-皆さんも是非一度食べに来てください！！
+    皆さんも是非一度食べに来てください！！
 <img src="{{ asset('img/sasaki.jpeg') }}" usemap="#storemap" alt="Store Map" width=1200>
 
 @endsection

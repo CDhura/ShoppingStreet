@@ -73,8 +73,8 @@
     <!-- <img src="{{ asset('img/arcade.png') }}" alt="商店街の画像" class="center_img">     -->
     <h1 class="TYTLE"> A商店街</h1>
     <p class="invite">
-    地元民に愛されて早半世紀<br>
-        歴史の町京都に根差した昔ながらの商店街<br>
+        地元民に愛されて早半世紀<br>
+        歴史の町〇〇に根差した昔ながらの商店街<br>
         
         詳しくは下のページから！！
     </p>
