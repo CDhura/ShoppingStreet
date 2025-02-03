@@ -12,7 +12,7 @@
     <div class="content2">
         <div class="box_switch">
             <a href="{{ route('shopping-street.map.index', ['name' => $name]) }}">
-                <h3>MAP（準備中）</h3>
+                <h3>マップ（準備中）</h3>
                 <p>
                     商店街の並びが一目でわかる！<br>
                     かわいいイラストマップ
@@ -21,7 +21,7 @@
         </div>
         <div class="box_switch">
             <a href="{{ route('shopping-street.notices.index', ['name' => $name]) }}">
-                <h3>お知らせ（準備中）</h3>
+                <h3>お知らせ</h3>
                 <p>
                     商店街には話題がいっぱい！<br>
                     記事を読んで商店街の魅力をもっと知ろう

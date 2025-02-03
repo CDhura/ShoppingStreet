@@ -131,10 +131,10 @@
             <img src="{{ asset('img/shopping-street/hidamari/background.jpg') }}" alt="陽だまり商店街" class="slide-image" data-tooltip="～陽だまり商店街～">
         </div>
         <div class="slide">
-            <img src="{{ asset('img/shopping-street/komorebi/background.jpg') }}" alt="木もれび商店街（一部準備中）" class="slide-image" data-tooltip="～木もれび商店街（準備中）～">
+            <img src="{{ asset('img/shopping-street/komorebi/background.jpg') }}" alt="木もれび商店街" class="slide-image" data-tooltip="～木もれび商店街～">
         </div>
         <div class="slide">
-            <img src="{{ asset('img/shopping-street/hoshiakari/background.jpg') }}" alt="星あかり商店街（準備中）" class="slide-image" data-tooltip="～星あかり商店街（準備中）～">
+            <img src="{{ asset('img/shopping-street/hoshiakari/background.jpg') }}" alt="星あかり商店街" class="slide-image" data-tooltip="～星あかり商店街～">
         </div>
 
         <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
