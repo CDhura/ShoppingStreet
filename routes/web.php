@@ -48,14 +48,18 @@ Route::prefix('/shopping-street/{name}')->name('shopping-street.')->group(functi
         Route::get('/', [ShoppingStreetController::class, 'notifications'])->name('index');
         Route::get('/{id}', [ShoppingStreetController::class, 'notificationsShow'])->name('show');
     });
+    Route::prefix('/notices')->name('notices.')->group(function () {
+        Route::get('/', [ShoppingStreetController::class, 'notices'])->name('index');
+        Route::get('/{id}', [ShoppingStreetController::class, 'noticesShow'])->name('show');
+    });
     Route::prefix('/access')->name('access.')->group(function() {
         Route::get('/', [ShoppingStreetController::class, 'access'])->name('index');
     });
 });
 
-Route::get('/coming', function () {
-    return view('coming');
-})->name('coming');
+Route::get('/coming-soon', function () {
+    return view('coming-soon');
+})->name('coming-soon');
 
 
 

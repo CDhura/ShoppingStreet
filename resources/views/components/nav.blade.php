@@ -16,7 +16,7 @@
             </a>
         </li>
         <li class="{{ Request::routeIs('shopping-street.notifications') && Request::route('name') === $streetName ? 'current' : '' }}">
-            <a href="{{ route('shopping-street.notifications.index', ['name' => $streetName]) }}">
+            <a href="{{ route('shopping-street.notices.index', ['name' => $streetName]) }}">
                 お知らせ
             </a>
         </li>

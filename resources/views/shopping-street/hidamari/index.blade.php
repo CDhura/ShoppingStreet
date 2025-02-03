@@ -20,7 +20,7 @@
             </a>
         </div>
         <div class="box_switch">
-            <a href="{{ route('shopping-street.notifications.index', ['name' => $name]) }}">
+            <a href="{{ route('shopping-street.notices.index', ['name' => $name]) }}">
                 <h3>お知らせ</h3>
                 <p>
                     商店街には話題がいっぱい！<br>

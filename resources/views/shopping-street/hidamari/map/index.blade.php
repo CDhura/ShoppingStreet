@@ -27,21 +27,21 @@
     <area 
         shape="rect" 
         coords="505,0,738,197" 
-        href="{{ route('coming') }}" 
+        href="{{ route('coming-soon') }}" 
         alt="shuttered Shop1" 
         data-tooltip="花屋～離島花屋～ #きれいなお花売ってます"
         >
     <area 
         shape="rect" 
         coords="90,236,313,422" 
-        href="{{ route('coming') }}" 
+        href="{{ route('coming-soon') }}" 
         alt="shuttered Shop1" 
         data-tooltip="八百屋～橘～ #産地直送"
     >
     <area 
         shape="rect" 
         coords="328,391,526,583" 
-        href="{{ route('coming') }}" 
+        href="{{ route('coming-soon') }}" 
         alt="shuttered Shop1" 
         data-tooltip="魚屋～錦魚～ #〆鯖あります"
     >
