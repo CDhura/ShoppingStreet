@@ -98,9 +98,15 @@
         <li class="dropdown">
             <a class="syou">商店街</a>
             <ul class="dropdown-menu">
-                <li><a href="{{ url('/home') }}">A商店街</a></li>
+                <!-- <li><a href="{{ url('/home') }}">A商店街</a></li>
                 <li><a href="{{ url('/home2') }}">B商店街</a></li>
-                <li><a href="{{ url('/home3') }}">C商店街</a></li>
+                <li><a href="{{ url('/home3') }}">C商店街</a></li> -->
+                <!-- <li><a href="{{ route('shopping-street.hidamari.index') }}">陽だまり商店街</a></li>
+                <li><a href="{{ route('shopping-street.komorebi.index') }}">木もれび商店街</a></li>
+                <li><a href="{{ route('shopping-street.hoshiakari.index') }}">星あかり商店街</a></li> -->
+                <li><a href="{{ route('shopping-street.index') }}">陽だまり商店街</a></li>
+                <li><a href="{{ route('shopping-street.index') }}">木もれび商店街</a></li>
+                <li><a href="{{ route('shopping-street.index') }}">星あかり商店街</a></li>
             </ul>
         </li>
         <li>
@@ -125,49 +131,29 @@
 
     <div class="slideshow-container">
         <div class="slide">
-            <img src="{{ asset('img/ShoppingDistrict1.jpg') }}" alt="A商店街" class="slide-image" data-tooltip="～A商店街～">
+            <img src="{{ asset('img/shopping-street/hidamari/background.jpg') }}" alt="陽だまり商店街" class="slide-image" data-tooltip="～陽だまり商店街～">
         </div>
         <div class="slide">
-            <img src="{{ asset('img/ShoppingDistrict2.jpg') }}" alt="B商店街（一部準備中）" class="slide-image" data-tooltip="～B商店街（一部準備中）～">
+            <img src="{{ asset('img/shopping-street/komorebi/background.jpg') }}" alt="木もれび商店街（一部準備中）" class="slide-image" data-tooltip="～木もれび商店街（準備中）～">
         </div>
         <div class="slide">
-            <img src="{{ asset('img/ShoppingDistrict3.jpg') }}" alt="C商店街（準備中）" class="slide-image" data-tooltip="～C商店街（準備中）～">
+            <img src="{{ asset('img/shopping-street/hoshiakari/background.jpg') }}" alt="星あかり商店街（準備中）" class="slide-image" data-tooltip="～星あかり商店街（準備中）～">
         </div>
 
         <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
         <button class="next" onclick="changeSlide(1)">&#10095;</button>
     </div>
 
+
     
     <div class="button-container">
-        <a href="{{ url('/home1') }}" class="btn" id="slide-link">
+        <!-- <a href="{{ url('/home1') }}" class="btn" id="slide-link"> -->
+        <!-- <a href="{{ route('shopping-street.hidamari.index') }}" class="btn" id="slide-link"> -->
+        <a href="{{ route('shopping-street.index') }}" class="btn" id="slide-link">
             <span>この商店街を見る</span>
         </a>
     </div>
 
-    <script>
-        
-window.addEventListener('scroll', function() {
-    const scrollPosition = window.scrollY;
-    const scrollIndicator = document.getElementById('scroll-indicator');
-
-    if (scrollPosition > 100) {
-        document.querySelector('.background').classList.add('white-bg');
-    } else {
-        document.querySelector('.background').classList.remove('white-bg');
-    }
-
-    // スクロールインジケーターの表示・非表示
-    if (scrollPosition > 100) {
-        scrollIndicator.style.opacity = '0'; // フェードアウト効果
-        scrollIndicator.style.transition = 'opacity 0.5s ease-in-out';
-    } else {
-        scrollIndicator.style.opacity = '1'; // フェードイン効果
-    }
-});
-
-
-    </script>
   <script src="{{ asset('js/custom.js') }}"></script>
 </body>
 </html>

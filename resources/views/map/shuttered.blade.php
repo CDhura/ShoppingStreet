@@ -64,6 +64,18 @@
 
 @section('title', '空き店舗')
 
+@section('map')
+<a href="{{ route('shopping-street.map.index', ['name' => 'hidamari']) }}">マップ</a>
+@endsection
+
+@section('notifications')
+<a href="{{ route('shopping-street.notifications.index', ['name' => 'hidamari']) }}">お知らせ</a>
+@endsection
+
+@section('access')
+<a href="{{ route('shopping-street.access.index', ['name' => 'hidamari']) }}">アクセス</a>
+@endsection
+
 @section('content')
     <div style="background-color: #ffffff;">
         <div style="font-size: 1px">　</div>

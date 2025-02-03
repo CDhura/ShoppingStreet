@@ -1,3 +1,23 @@
+// スクロールした際に背景を白くする. 
+window.addEventListener('scroll', function() {
+    const scrollPosition = window.scrollY;
+    const scrollIndicator = document.getElementById('scroll-indicator');
+
+    if (scrollPosition > 100) {
+        document.querySelector('.background').classList.add('white-bg');
+    } else {
+        document.querySelector('.background').classList.remove('white-bg');
+    }
+
+    // スクロールインジケーターの表示・非表示
+    if (scrollPosition > 100) {
+        scrollIndicator.style.opacity = '0'; // フェードアウト効果
+        scrollIndicator.style.transition = 'opacity 0.5s ease-in-out';
+    } else {
+        scrollIndicator.style.opacity = '1'; // フェードイン効果
+    }
+});
+
 document.querySelectorAll('area').forEach(area => {
     area.addEventListener('mouseover', function(e) {
         const tooltip = document.getElementById('tooltip');
@@ -52,11 +72,25 @@ function showSlides(n) {
     slides[slideIndex - 1].style.display = "block";
 
     // リンク先の変更
+    // const urls = [
+    //     "/home",
+    //     "/home2",
+    //     "/coming"
+    // ];
+
+    // リンク先の変更
+    // const urls = [
+    //     route('shopping-street.hidamari.index'), 
+    //     route('shopping-street.komorebi.index'), 
+    //     route('shopping-street.hoshiakari.index')
+    // ]
+
+    // リンク先の変更
     const urls = [
-        "/home",
-        "/home2",
-        "/coming"
-    ];
+        "/shopping-street/hidamari", 
+        "/shopping-street/komorebi", 
+        "/shopping-street/hoshiakari"
+    ]
     
     link.href = urls[slideIndex - 1];
 }
