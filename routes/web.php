@@ -28,10 +28,6 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-// Route::get('/', function () {
-//     return view('top');
-// });
-
 // トップページ
 Route::get('/', [ShoppingStreetController::class, 'index'])->name('index');
 
