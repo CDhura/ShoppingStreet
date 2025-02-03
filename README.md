@@ -90,7 +90,7 @@ npm install -g npm@11.0.0
 
 ## 停止する方法
 ```sh
-docker-compose stop
+./vendor/bin/sail stop
 ```
 
 ## URL

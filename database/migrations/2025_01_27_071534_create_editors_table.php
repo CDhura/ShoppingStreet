@@ -11,9 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // Schema::create('editors', function (Blueprint $table) {
+        //     $table->string('editor_id', 255)->primary();
+        //     $table->string('password', 255);
+        // });
         Schema::create('editors', function (Blueprint $table) {
-            $table->string('editor_id', 255)->primary();
-            $table->string('password', 255);
+            $table->id();
+            $table->string('username')->unique();
+            $table->string('password');
+            $table->timestamps();
         });
     }
 

@@ -53,11 +53,13 @@ Route::prefix('/shopping-street/{name}')->name('shopping-street.')->group(functi
     });
 });
 
+// 準備中ページ
 Route::get('/coming-soon', function () {
     return view('coming-soon');
 })->name('coming-soon');
 
-
+// ログイン用ページ
+// Route::
 
 
 require __DIR__.'/auth.php';
