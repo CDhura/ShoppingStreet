@@ -20,8 +20,10 @@ class DatabaseSeeder extends Seeder
         // ]);
         
         $this->call([
-            NotificationsSeeder::class,
-            EditorsSeeder::class,
+            // NotificationsSeeder::class,
+            // EditorsSeeder::class,
+            ShoppingStreetSeeder::class,
+            NoticeSeeder::class,
         ]);
     }
 }
