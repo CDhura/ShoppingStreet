@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             // EditorsSeeder::class,
             ShoppingStreetSeeder::class,
             NoticeSeeder::class,
+            EditorSeeder::class, 
         ]);
     }
 }
