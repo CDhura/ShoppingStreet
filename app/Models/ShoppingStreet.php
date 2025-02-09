@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class ShoppingStreet extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['name', 'slug', 'description'];
+
+    public function editors()
+    {
+        return $this->hasMany(Editor::class);
+    }
 }

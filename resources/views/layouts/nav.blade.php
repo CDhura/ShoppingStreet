@@ -2,7 +2,7 @@
 ・title（ページタイトル）
 ・background-image（背景画像）
 ・shopping-street-name（商店街の名前）
-に値を代入してください. 
+に値を代入. 
 例：
 @section('title', 'マップページ')
 @section('background-image', '/img/shopping-street/hidamari/background.jpg')

@@ -15,19 +15,7 @@
 
     <hr>
     <div class="container">
-        <div class="body">
-            @if($nextNotice)
-                <a  class="notirink" href="{{ route('shopping-street.notices.show', ['name' => $name, 'id'=> $nextNotice->id]) }}">
-                    1つ後の記事へ
-                </a>
-            @else
-                <span class="disabled-link">1つ後の記事へ</span>
-            @endif
-        </div>
-        <!-- 一覧に戻るボタン -->
-        <div class="body">
-            <a href="{{ route('shopping-street.notices.index', ['name' => $name]) }}" class="notirink">一覧に戻る</a>
-        </div>
+        <!-- 前の記事ボタン -->
         <div class="body">
             @if($prevNotice)
                 <a class="notirink" href="{{ route('shopping-street.notices.show', ['name' => $name, 'id'=> $prevNotice->id]) }}">
@@ -35,6 +23,20 @@
                 </a>
             @else
             <span class="disabled-link">1つ前の記事へ</span>
+            @endif
+        </div>
+        <!-- 一覧に戻るボタン -->
+        <div class="body">
+            <a href="{{ route('shopping-street.notices.index', ['name' => $name]) }}" class="notirink">一覧に戻る</a>
+        </div>
+        <!-- 次の記事ボタン -->
+        <div class="body">
+            @if($nextNotice)
+                <a  class="notirink" href="{{ route('shopping-street.notices.show', ['name' => $name, 'id'=> $nextNotice->id]) }}">
+                    1つ後の記事へ
+                </a>
+            @else
+                <span class="disabled-link">1つ後の記事へ</span>
             @endif
         </div>
     </div>

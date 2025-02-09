@@ -68,7 +68,7 @@ Route::get('/coming-soon', function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/mypage', [ShoppingStreetController::class, 'mypage'])->name('mypage');
     Route::post('/logout', [ShoppingStreetController::class, 'logout'])->name('logout');
-    
+
     // お知らせの CRUD 操作
     Route::get('/notices/create', [ShoppingStreetController::class, 'createNotice'])->name('notices.create');
     Route::post('/notices', [ShoppingStreetController::class, 'storeNotice'])->name('notices.store');

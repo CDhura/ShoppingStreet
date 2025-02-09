@@ -18,18 +18,21 @@ class EditorSeeder extends Seeder
             [
                 'username' => 'editor1',
                 'password' => Hash::make('editor1'), 
+                'shopping_street_id' => 1,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'username' => 'editor2',
                 'password' => Hash::make('editor2'), 
+                'shopping_street_id' => 2,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'username' => 'editor3',
                 'password' => Hash::make('editor3'), 
+                'shopping_street_id' => 3,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

@@ -1,5 +1,5 @@
 <!-- 「お知らせ」のトップ画面 -->
- 
+
 @extends('layouts.nav')
 
 @section('title', 'お知らせ')
@@ -7,7 +7,7 @@
 @section('shopping-street-name', $name) 
 
 @section('content')
-<h1 class="tytle">商店街からのお知らせ</h1>
+    <h1 class="tytle">商店街からのお知らせ</h1>
 
     @if ($notices->isEmpty())
         <p>現在、お知らせはありません。</p>

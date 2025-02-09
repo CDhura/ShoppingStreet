@@ -3,8 +3,7 @@
 @section('title', '管理者用ページ | トップ')
 
 @section('content')
-
-    <h2>{{ $shoppingStreet->name }} のお知らせ一覧</h2>
+    <h2>{{ $shoppingStreet->name }}のお知らせ一覧</h2>
 
     @if(session('success'))
         <p class="text-green-500">{{ session('success') }}</p>
