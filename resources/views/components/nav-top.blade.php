@@ -13,18 +13,7 @@
         </li>
         <li>
             <a href="{{ route('mypage') }}">管理者用ページ</a>
-            <!-- <a href="{{ url('/login') }}">管理者ログイン</a> -->
-            <!-- <a href="{{ route('login') }}">管理者ログイン</a> -->
-            <!-- @if(auth()->check())
-                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    ログアウト
-                </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
-            @else
-                <a href="{{ route('login') }}">ログイン</a>
-            @endif -->
         </li>
     </ul>
 </nav>
+<div style="margin-top: 100px;"></div>

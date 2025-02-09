@@ -181,20 +181,105 @@ class ShoppingStreetController extends Controller
         // なので, $shoppingStreetにはある商店街のレコードが入る. 
         $shoppingStreet = ShoppingStreet::where('id', $editorId)->first();
         if (!$shoppingStreet) {
-            abort(403, 'アクセス権がありません');
+            abort(403, 'アクセス権がありません！');
         }else{
             // echo 'アクセス成功！';
         }
 
+        // noticesテーブルにおいて, shopping_street_id == $editorIdとなるレコードをすべて取得. 
         $notices = Notice::where('shopping_street_id', $editorId)->get();
         return view('editor.mypage', compact('editor', 'shoppingStreet', 'notices'));
+    }
+
+    // お知らせ作成フォーム
+    public function createNotice()
+    {
+        $editorId = Auth::id();
+        $shoppingStreet = ShoppingStreet::where('id', $editorId)->first();
+
+        if (!$shoppingStreet) {
+            abort(403, 'アクセス権がありません！');
+        }
+
+        return view('editor.create', compact('shoppingStreet'));
+    }
+
+    // フォームで作成したお知らせの保存
+    public function storeNotice(Request $request)
+    {
+        $editorId = Auth::id(); // 管理者IDを取得
+        $shoppingStreet = ShoppingStreet::where('id', $editorId)->first(); // 該当する商店街レコードを取得
+
+        if (!$shoppingStreet) {
+            abort(403, 'アクセス権がありません！');
+        }
+
+
+        $request->validate([
+            'title' => 'required|max:255',
+            'body' => 'required',
+        ]);
+
+        Notice::create([
+            'shopping_street_id' => $editorId,
+            'title' => $request->title,
+            'body' => $request->body,
+        ]);
+
+        return redirect()->route('mypage')->with('success', 'お知らせを追加しました！');
+    }
+
+    // お知らせ編集フォーム
+    public function editNotice(Notice $notice)
+    {
+        $editorId = Auth::id();
+
+        if ($notice->shopping_street_id !== $editorId) {
+            abort(403, 'アクセス権がありません！');
+        }
+
+        return view('editor.update', compact('notice'));
+    }
+
+    // フォームで編集したお知らせの更新
+    public function updateNotice(Request $request, Notice $notice)
+    {
+        $editorId = Auth::id();
+
+        if ($notice->shopping_street_id !== $editorId) {
+            abort(403, 'アクセス権がありません！');
+        }
+
+        $request->validate([
+            'title' => 'required|max:255',
+            'body' => 'required',
+        ]);
+
+        $notice->update([
+            'title' => $request->title,
+            'body' => $request->body,
+        ]);
+
+        return redirect()->route('mypage')->with('success', 'お知らせを更新しました！');
+    }
+
+    // お知らせの削除
+    public function deleteNotice(Notice $notice)
+    {
+        $editorId = Auth::id();
+
+        if ($notice->shopping_street_id !== $editorId) {
+            abort(403, 'アクセス権がありません！');
+        }
+
+        $notice->delete();
+        return redirect()->route('mypage')->with('success', 'お知らせを削除しました！');
     }
 
     // ログアウト処理
     public function logout(Request $request) {
         Auth::logout();
-        // return redirect()->route('login');
-        return redirect()->route('goodbye');
+        return redirect()->route('goodbye'); // ログアウト用ページにリダイレクト
     }
 
     // ログアウト時にリダイレクトされるページ
