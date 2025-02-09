@@ -3,20 +3,18 @@
 namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class Editor extends Authenticatable
 {
-    use HasFactory;
+    use Notifiable;
 
-    // モデルの属性やリレーションを定義する
-    protected $fillable = [
-        'editor_id', 'password',
+    protected $table = 'editors'; // editors テーブルを使用する. （usersテーブルは使用しない）
+    protected $fillable = ['username', 'password'];
+
+    protected $hidden = ['password'];
+
+    protected $casts = [
+        'password' => 'hashed',
     ];
-
-    // デフォルトの認証に使用するカラムを指定
-    protected $primaryKey = 'editor_id';
-    public $incrementing = false;
-    protected $keyType = 'string';
 }

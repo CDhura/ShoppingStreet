@@ -21,5 +21,5 @@ class EditorsController extends Controller
     }       
     public function select_page(){
         return view('editor.select', );
-}
+    }
 }

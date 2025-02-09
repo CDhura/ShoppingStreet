@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Notification;
 use App\Models\Notice;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Models\Editor;
+use App\Models\ShoppingStreet;
 
 class ShoppingStreetController extends Controller
 {
@@ -20,7 +24,8 @@ class ShoppingStreetController extends Controller
     // サイト全体のトップページ
     public function index()
     {
-        return view('shopping-street.index', ['streets' => $this->validStreets]);
+        // return view('shopping-street.index', ['streets' => $this->validStreets]);
+        return view('index', ['streets' => $this->validStreets]);
     }
 
     // 各商店街のトップページ
@@ -86,19 +91,6 @@ class ShoppingStreetController extends Controller
     }
     public function noticesShow($name, $id)
     {    
-        // // 現在のお知らせを取得
-        // $notice = Notice::where('id', $id)->firstOrFail();
-    
-        // // 1つ前のお知らせを取得（`created_at` の降順）
-        // $prevNotice = Notice::where('id', '<', $notice->id)
-        //     ->orderBy('id', 'desc')
-        //     ->first();
-    
-        // // 1つ後のお知らせを取得（`created_at` の昇順）
-        // $nextNotice = Notice::where('created_at', '>', $notice->created_at)
-        //     ->orderBy('id', 'asc')
-        //     ->first();
-
         $notice = Notice::findOrFail($id);
     
         // 1つ前の記事
@@ -153,5 +145,77 @@ class ShoppingStreetController extends Controller
     {
         $this->validateStreet($name);
         return view("shopping-street.{$name}.access.index", compact('name'));
+    }
+
+    
+    // ログイン画面の表示
+    public function showLoginForm() {
+        return view('editor.login');
+    }
+
+    // ログイン処理
+    public function login(Request $request) {
+        $request->validate([
+            'username' => 'required|string',
+            'password' => 'required|string',
+        ]);
+
+        $editor = Editor::where('username', $request->username)->first();
+
+        if ($editor && Hash::check($request->password, $editor->password)) {
+            Auth::login($editor);
+            return redirect()->route('mypage');
+        }
+
+        return back()->withErrors(['login_error' => 'ユーザー名またはパスワードが違います']);
+    }
+
+    // マイページ（ログインした管理者の商店街のお知らせ一覧を表示する）
+    public function mypage() {
+        $editor = Auth::user(); // ログインユーザーを取得
+
+        // 現在ログイン中の管理者idを取得(editorsテーブルのidを取得)
+        $editorId = Auth::id(); 
+
+        // where('id', $editorId)により, shopping_streetsテーブルにおいて, idが$editorIdに一致するようなレコードを検索する. 
+        // なので, $shoppingStreetにはある商店街のレコードが入る. 
+        $shoppingStreet = ShoppingStreet::where('id', $editorId)->first();
+        if (!$shoppingStreet) {
+            abort(403, 'アクセス権がありません');
+        }else{
+            // echo 'アクセス成功！';
+        }
+
+        $notices = Notice::where('shopping_street_id', $editorId)->get();
+        return view('editor.mypage', compact('editor', 'shoppingStreet', 'notices'));
+    }
+
+    // ログアウト処理
+    public function logout(Request $request) {
+        Auth::logout();
+        // return redirect()->route('login');
+        return redirect()->route('goodbye');
+    }
+
+    // ログアウト時にリダイレクトされるページ
+    public function goodbye(){
+        return view('goodbye');
+    }
+
+    public function noticeShow($id)
+    {        
+        // 現在のレコードを取得
+        $notification = Notice::where('id', $id)->firstOrFail();
+
+        return view('editor.preview', ['notification'=>$notification]);
+    }
+    public function editPage()
+    {
+        $notifications = Notice::all();
+        return view('editor.edit', ['notifications'=>$notifications]);
+    }       
+    public function selectPage()
+    {
+        return view('editor.select', );
     }
 }

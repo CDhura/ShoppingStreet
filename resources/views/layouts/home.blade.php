@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Default title')</title>
     @php
@@ -31,7 +32,7 @@
             background-blend-mode: lighten; /* 背景画像と背景色をブレンド */
             overflow: scroll; /*スクロールバーを常に表示 */
         }
-        .background {
+        /* .background {
             position: fixed;
             top: 0;
             left: 0;
@@ -39,14 +40,14 @@
             height: 100%;
             background-size: cover;
             background-position: center;
-            filter: blur(5px); /* 背景のみにぼかし効果を適用 */
-            z-index: -1; /* 背景をコンテンツの背面に配置 */ 
-        }
+            filter: blur(5px); 背景のみにぼかし効果を適用
+            z-index: -1; 背景をコンテンツの背面に配置 
+        } */
 
-        .content {
+        /* .content {
             position: relative;
             z-index: 1;
-        }
+        } */
 
         .TITLE {
         font-family: 'HG行書体'; /* 行書体フォント */

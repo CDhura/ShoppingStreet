@@ -23,13 +23,31 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
-    public function store(LoginRequest $request): RedirectResponse
+    // public function store(LoginRequest $request): RedirectResponse
+    // {
+    //     $request->authenticate();
+
+    //     $request->session()->regenerate();
+
+    //     return redirect()->intended(RouteServiceProvider::HOME);
+    // }
+    public function store(Request $request)
     {
-        $request->authenticate();
+        $credentials = $request->validate([
+            'username' => ['required', 'string'],
+            'password' => ['required'],
+        ]);
 
-        $request->session()->regenerate();
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+            // /selectに飛ぶようにする. 
+            return redirect()->intended('/select'); // ログイン後のリダイレクト
+        }
+
+        return back()->withErrors([
+            'username' => 'ログイン情報が正しくありません。',
+        ]);
     }
 
     /**
