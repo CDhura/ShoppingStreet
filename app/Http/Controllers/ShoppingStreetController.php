@@ -76,7 +76,7 @@ class ShoppingStreetController extends Controller
                 ->where('slug', $name); // 該当する商店街のお知らせのみを取り出す. 
         })
         ->orderBy('id', 'desc') // idについての降順で表す
-        ->paginate(10); // 10件ずつ取得   
+        ->paginate(8); // 10件ずつ取得   
 
         return view("shopping-street.notices.index", ['name' => $name, 'notices' => $notices]);
     }

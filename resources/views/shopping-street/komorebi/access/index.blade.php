@@ -5,7 +5,7 @@
 @section('shopping-street-name', 'komorebi') 
 
 @section('content')
-    <h1 class='tytle'>アクセス情報</h1>
+    <h1 class='title'>アクセス情報</h1>
     <h2>所在地　：〇〇府〇〇市<br>
     電話番号：0120-xxx-xxx</h2>
     <ul class="left-align">

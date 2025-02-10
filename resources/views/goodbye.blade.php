@@ -1,25 +1,15 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts.nav-top')
+@section('title', 'ログアウト')
 
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/top.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ログアウトしました</title>
-</head>
+@section('content')
 
-<body class="home">
-    <x-nav-top />
-
-    <div class="logout-container">
-        <h1 class="logout-message">ログアウトしました！</h1>
-        <div class="button-container">
-            <a href="{{ route('index') }}" class="btn">トップページへ</a>
-            <a href="{{ route('login') }}" class="btn">ログイン画面へ</a>
-        </div>
+<div class="logout-container">
+    <h1 class="logout-message">ログアウトしました！</h1>
+    <div class="button-container">
+        <a href="{{ route('index') }}" class="btn">トップページへ</a>
+        <a href="{{ route('mypage') }}" class="btn">管理者用ページへ</a>
     </div>
+</div>
 
-</body>
-</html>
+@endsection
+

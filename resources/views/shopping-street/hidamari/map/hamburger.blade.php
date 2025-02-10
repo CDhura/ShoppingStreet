@@ -7,7 +7,7 @@
 @section('content')
 
 
-    <h1 class='tytle'>佐々木バーガー</h1>
+    <h1 class='title'>佐々木バーガー</h1>
     <p>メニューはこちら</p>
     <ul>
         <li>ハンバーガー</li>

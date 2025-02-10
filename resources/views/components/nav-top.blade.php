@@ -1,10 +1,10 @@
-<nav>
+<nav class="menu-list">
     <ul>
-        <li class="{{ Request::is('/') ? 'current' : '' }}">
-            <a href="{{ url('/') }}">トップ</a>
+        <li>
+            <a href="{{ route('index') }}">トップ</a>
         </li>
         <li class="dropdown">
-            <a class="syou">商店街</a>
+            <a class="street">商店街</a>
             <ul class="dropdown-menu">
                 <li><a href="{{ route('shopping-street.show', ['name' => 'hidamari']) }}">陽だまり商店街</a></li>
                 <li><a href="{{ route('shopping-street.show', ['name' => 'komorebi']) }}">木もれび商店街</a></li>
@@ -16,4 +16,4 @@
         </li>
     </ul>
 </nav>
-<div style="margin-top: 100px;"></div>
+<div style="margin-top: 69px;"></div>

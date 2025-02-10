@@ -1,5 +1,4 @@
-
-nav {
+.menu-list {
     /* 背景色を白に設定し、少し透過 */
     /* background-color: rgba(10, 240, 248, 0.8); */
     background-color:  #C2A366;
@@ -18,7 +17,7 @@ nav {
 }
 
 
-nav ul {
+.menu-list ul {
     display: table;
     margin: 0 auto;
     padding: 0;
@@ -26,39 +25,39 @@ nav ul {
     text-align: center;
 }
 
-nav li {
+.menu-list li {
     display: table-cell;
     min-width: 50px;
 }
 
-/* nav li.current {
+/* .menu-list li.current {
     border-bottom: 3px solid #000000;
 } */
 
-nav li:hover {
+.menu-list li:hover {
     color: #000000;
     border-bottom: 3px solid #000000; 
 }
-
-nav li.current a {
+.menu-list li.current a {
     color:  #E6ECF5;
+    /* color: #000000; */
 }
-nav a {
+.menu-list a {
     display: block;
     width: 100%;
     text-decoration: none; 
     color: #ffffff;
+    /* color: #000000; */
     padding-bottom: 5px;
     font-size: 30px;
 }
-
 
 .dropdown:hover .dropdown-menu {
     opacity: 1;
     visibility: visible;
 }
 
-.syou{
+.street{
     color: #000;
 }
 

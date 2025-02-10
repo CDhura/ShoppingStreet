@@ -4,7 +4,7 @@
 @section('shopping-street-name', 'hidamari')
 
 @section('content')
-<h1 class="tytle">陽だまり商店街 イラストMAP</h1>
+<h1 class="title">陽だまり商店街 イラストMAP</h1>
 <p class="invite2">気になるお店のアイコンをクリック！
     <br>各お店の詳細ページに飛べます
 </p>

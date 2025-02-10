@@ -7,7 +7,7 @@
 @section('shopping-street-name', $name) 
 
 @section('content')
-    <h1 class="tytle">{{ $notice->title }}</h1>
+    <h1 class="title">{{ $notice->title }}</h1>
     <div class="right-align">作成日：{{ $notice->created_at->format('Y-m-d') }}</div>
     <div class="right-align">最終更新日：{{ $notice->updated_at->format('Y-m-d') }}</div>
     <hr>

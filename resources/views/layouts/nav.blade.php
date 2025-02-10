@@ -40,23 +40,6 @@
             background-blend-mode: lighten; /* 背景画像と背景色をブレンド */
             overflow: scroll; /*スクロールバーを常に表示 */
         }
-        .TITLE {
-        font-family: 'HG行書体'; /* 行書体フォント */
-        font-size: 90px;
-        padding-top: 40px;
-        text-align: center;
-        color: #F5EFE6;
-        text-shadow:
-        2px 2px 0 #000,
-        -2px 2px 0 #000,
-        2px -2px 0 #000,
-        -2px -2px 0 #000,
-        2px 0 0 #000,
-        -2px 0 0 #000, 0 2px 0 #000,
-        0 -2px 0 #000;
-        font-weight: bold;
-        text-align: center;
-        }
     </style>
 </head> 
 
@@ -67,7 +50,8 @@
     <div class="content">
         @yield('content')
     </div>
-      <!-- JavaScriptファイルの読み込み -->
-      <script src="{{ asset('js/custom.js') }}"></script>
+
+    <!-- JavaScriptファイルの読み込み -->
+    <script src="{{ asset('js/custom.js') }}"></script>
 </body>
 </html>

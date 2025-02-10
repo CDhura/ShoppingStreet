@@ -7,7 +7,7 @@
 @section('content')
     <div style="background-color: #ffffff;">
         <div style="font-size: 1px">　</div>
-        <h1 class='tytle'>お肉屋</h1>
+        <h1 class='title'>お肉屋</h1>
         <hr style="height: 2px; background-color: #C2A366; border: none;">
         <div style="font-size: 1px">　</div>
     </div>
