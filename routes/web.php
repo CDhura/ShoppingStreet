@@ -70,6 +70,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/logout', [ShoppingStreetController::class, 'logout'])->name('logout');
 
     // お知らせの CRUD 操作
+    Route::get('/notices/{notice}/admin-show', [ShoppingStreetController::class, 'adminShowNotice'])->name('notices.admin-show'); // {notice}にはNoticeテーブルのレコードを渡してもよい. （自動でIdに変換される. ）
     Route::get('/notices/create', [ShoppingStreetController::class, 'createNotice'])->name('notices.create');
     Route::post('/notices', [ShoppingStreetController::class, 'storeNotice'])->name('notices.store');
     Route::get('/notices/{notice}/edit', [ShoppingStreetController::class, 'editNotice'])->name('notices.edit');

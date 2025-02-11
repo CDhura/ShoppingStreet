@@ -1,23 +1,29 @@
-@extends('layouts.nav-top')
+@extends('layouts.mypage')
 
-@section('title', '管理者用ページ | 編集')
+@section('title', 'お知らせ編集')
 
 @section('content')
-<div style="margin-top: 90px;"></div>
-<h2>お知らせを編集</h2>
+<h1 class="title">お知らせを編集</h1>
 
-<form action="{{ route('notices.update', $notice) }}" method="POST">
+<div>
+    <form action="{{ route('notices.update', $notice) }}" method="POST"onsubmit="return confirmUpdate();">
     @csrf
     @method('PUT')
-    
-    <label>タイトル:</label>
-    <input type="text" name="title" value="{{ $notice->title }}" required>
-    
-    <label>本文:</label>
-    <textarea name="body" required>{{ $notice->body }}</textarea>
+        <div class="create-form-group">
+            <label for="title">タイトル:</label>
+            <input type="text" name="title" value="{{ $notice->title }}" id="title" class="create-form-control" required>
+        </div>
+        <div class="create-form-group">
+            <label for="body">本文:</label>
+            <textarea name="body" id="body" class="create-form-control large-textarea" required>{{ $notice->body }}</textarea>
+        </div>
+        <button type="submit" class="notice-create-button2">更新</button>
+    </form>
+</div>
 
-    <button type="submit" class="btn btn-primary">更新</button>
-</form>
-
+<div class="custom-button">
+    <a href="{{ route('mypage') }}" >
+        管理者用ページに戻る
+    </a>
+</div>
 @endsection
-

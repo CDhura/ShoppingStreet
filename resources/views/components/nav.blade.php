@@ -26,7 +26,7 @@
             </a>
         </li>
         <li>
-            @if(auth()->check())
+            <!-- @if(auth()->check())
                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     ログアウト
                 </a>
@@ -35,7 +35,12 @@
                 </form>
             @else
                 <a href="{{ route('login') }}">ログイン</a>
-            @endif
+            @endif -->
+            
+            <a href="{{ route('mypage') }}">
+                管理者用ページ
+            </a>
         </li>
     </ul>
 </nav>
+<div style="margin-top: 69px;"></div>

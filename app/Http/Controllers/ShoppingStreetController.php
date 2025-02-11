@@ -132,12 +132,14 @@ class ShoppingStreetController extends Controller
 
         $editor = Editor::where('username', $request->username)->first();
 
-        if ($editor && Hash::check($request->password, $editor->password)) {
-            Auth::login($editor);
-            return redirect()->route('mypage');
+        if (!$editor || !Hash::check($request->password, $editor->password)) {
+            return back()->withErrors(['login_error' => 'ユーザー名またはパスワードが違います'])
+                        ->onlyInput('username'); // ユーザー名を残す
         }
 
-        return back()->withErrors(['login_error' => 'ユーザー名またはパスワードが違います']);
+        Auth::login($editor);
+
+        return redirect()->route('mypage');
     }
 
     // マイページ（ログインした管理者の商店街のお知らせ一覧を表示する）
@@ -155,10 +157,29 @@ class ShoppingStreetController extends Controller
         }
 
         // noticesテーブルにおいて, shopping_street_id == $editorIdとなるレコードをすべて取得. 
-        $notices = Notice::where('shopping_street_id', $editorId)->get();
+        $notices = Notice::where('shopping_street_id', $editorId)
+            ->orderBy('id', 'desc')
+            ->paginate(8);
 
-        // return view('editor.mypage', compact('editor', 'shoppingStreet', 'notices'));
+        // $notices = Notice::where('shopping_street_id', function ($query) use ($name) {
+        //     $query->select('id')
+        //         ->from('shopping_streets')
+        //         ->where('slug', $name); // 該当する商店街のお知らせのみを取り出す. 
+        // })
+        // ->orderBy('id', 'desc') // idについての降順で表す
+        // ->paginate(8); // 10件ずつ取得  
+
         return view('editor.mypage', compact('shoppingStreet', 'notices'));
+    }
+
+    public function adminShowNotice(Notice $notice)
+    {
+        $editor = Auth::user();
+        if ($notice->shopping_street_id !== $editor->shopping_street_id) {
+            abort(403, 'アクセス権がありません');
+        }
+        
+        return view('editor.admin-show', compact('notice'));
     }
 
     // お知らせ作成フォーム
@@ -166,9 +187,8 @@ class ShoppingStreetController extends Controller
     {
         $editorId = Auth::id();
         $shoppingStreet = ShoppingStreet::where('id', $editorId)->first();
-
         if (!$shoppingStreet) {
-            abort(403, 'アクセス権がありません！');
+            abort(403, 'アクセス権がありません');
         }
 
         return view('editor.create', compact('shoppingStreet'));
@@ -219,9 +239,9 @@ class ShoppingStreetController extends Controller
     // お知らせ編集フォーム
     public function editNotice(Notice $notice)
     {
-        $editorId = Auth::id();
-
-        if ($notice->shopping_street_id !== $editorId) {
+        // $editorId = Auth::id();
+        $editor = Auth::user();
+        if ($notice->shopping_street_id !== $editor->shopping_street_id) {
             abort(403, 'アクセス権がありません');
         }
 
@@ -288,20 +308,23 @@ class ShoppingStreetController extends Controller
         return view('goodbye');
     }
 
-    public function noticeShow($id)
-    {        
-        // 現在のレコードを取得
-        $notification = Notice::where('id', $id)->firstOrFail();
 
-        return view('editor.preview', ['notification'=>$notification]);
-    }
-    public function editPage()
-    {
-        $notifications = Notice::all();
-        return view('editor.edit', ['notifications'=>$notifications]);
-    }       
-    public function selectPage()
-    {
-        return view('editor.select', );
-    }
+
+
+    // public function noticeShow($id)
+    // {        
+    //     // 現在のレコードを取得
+    //     $notification = Notice::where('id', $id)->firstOrFail();
+
+    //     return view('editor.preview', ['notification'=>$notification]);
+    // }
+    // public function editPage()
+    // {
+    //     $notifications = Notice::all();
+    //     return view('editor.edit', ['notifications'=>$notifications]);
+    // }       
+    // public function selectPage()
+    // {
+    //     return view('editor.select', );
+    // }
 }

@@ -5,8 +5,9 @@
 
 @section('content')
 <h1 class="title">陽だまり商店街 イラストMAP</h1>
-<p class="invite2">気になるお店のアイコンをクリック！
-    <br>各お店の詳細ページに飛べます
+<p class="invite2">
+    気になるお店のアイコンをクリック！<br>
+    各お店の詳細ページに飛べます
 </p>
 <img class="center_img" src="{{ asset('img/arcade2.png') }}" usemap="#storemap" alt="Store Map" width="100%">
 <map name="storemap">

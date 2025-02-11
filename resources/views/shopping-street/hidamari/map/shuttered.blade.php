@@ -28,9 +28,11 @@
         <p><strong>メール:</strong> <a href="mailto:info@example.com">info@example.com</a></p>
         <p><strong>担当:</strong> ×× 不動産</p>
     </div>
-    <br>
-    <div>
-        <a href="{{ route('shopping-street.map.index', ['name' => 'hidamari']) }}" class="custom-button">イラストMAPに戻る</a>
+
+    <div class="custom-button">
+        <a href="{{ route('shopping-street.map.index', ['name' => 'hidamari']) }}">
+            イラストMAPに戻る
+        </a>
     </div>
 
 

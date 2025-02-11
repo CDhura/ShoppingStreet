@@ -26,8 +26,8 @@
         <img src="{{ asset('img/shopping-street/hoshiakari/background.jpg') }}" alt="星あかり商店街" class="slide-image" data-tooltip="～星あかり商店街～">
     </div>
 
-    <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
-    <button class="next" onclick="changeSlide(1)">&#10095;</button>
+    <button class="arrow prev" onclick="changeSlide(-1)">&#10094;</button>
+    <button class="arrow next" onclick="changeSlide(1)">&#10095;</button>
 </div>
 
 <div class="button-container">

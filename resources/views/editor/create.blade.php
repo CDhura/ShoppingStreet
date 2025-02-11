@@ -1,21 +1,32 @@
-@extends('layouts.nav-top')
+@extends('layouts.mypage')
 
-@section('title', '管理者用ページ | 編集')
+@section('title', 'お知らせ新規作成')
 
 @section('content')
-<div style="margin-top: 90px;"></div>
-<h2>新しいお知らせを作成</h2>
+<h1 class="title">
+    新規お知らせ作成
+</h1>
 
-<form action="{{ route('notices.store') }}" method="POST">
+<div>
+    <form action="{{ route('notices.store') }}" method="POST" onsubmit="return confirmCreate();">
     @csrf
-    <label>タイトル:</label>
-    <input type="text" name="title" required>
-    
-    <label>本文:</label>
-    <textarea name="body" required></textarea>
+        <div class="create-form-group">
+            <label for="title">タイトル:</label>
+            <input type="text" name="title" id="title" class="create-form-control" required>
+        </div>
+        <div class="create-form-group">
+            <label for="body">本文:</label>
+            <textarea name="body" id="body" class="create-form-control large-textarea" required></textarea>
+        </div>
+        <button type="submit" class="notice-create-button2">追加</button>
+    </form>
+</div>
 
-    <button type="submit" class="btn btn-primary">追加</button>
-</form>
+<div class="custom-button">
+    <a href="{{ route('mypage') }}" >
+        管理者用ページに戻る
+    </a>
+</div>
 
 @endsection
 
