@@ -27,7 +27,7 @@
             </a>
         </div>
         <div>
-            <form action="{{ route('notices.delete', $notice) }}" method="POST">
+            <form action="{{ route('notices.delete', $notice) }}" method="POST" onsubmit="return confirmDelete();">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="notice-delete-button">
