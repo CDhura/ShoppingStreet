@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Notification;
 use App\Models\Notice;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use App\Models\Editor;
 use App\Models\ShoppingStreet;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class ShoppingStreetController extends Controller
 {
@@ -98,7 +97,6 @@ class ShoppingStreetController extends Controller
         $notice = Notice::findOrFail($id);
     
         // 1つ前の記事
-        // $prevNotice = $notice->prev_id ? Notice::find($notice->prev_id) : null;
         if($notice->prev_id){
             $prevNotice = Notice::find($notice->prev_id);
         }else{
@@ -106,14 +104,12 @@ class ShoppingStreetController extends Controller
         }
     
         // 1つ後の記事
-        // $nextNotice = $notice->next_id ? Notice::find($notice->next_id) : null;
         if($notice->next_id){
             $nextNotice = Notice::find($notice->next_id);
         }else{
             $nextNotice = null;
         }
 
-        // return view("shopping-street.{$name}.notices.show", [
         return view("shopping-street.notices.show", [
             'name' => $name, 
             'prevNotice' => $prevNotice,
@@ -145,7 +141,7 @@ class ShoppingStreetController extends Controller
 
         if (!$editor || !Hash::check($request->password, $editor->password)) {
             return back()->withErrors(['login_error' => 'ユーザー名またはパスワードが違います'])
-                        ->onlyInput('username'); // ユーザー名を残す
+                        ->onlyInput('username');
         }
 
         Auth::login($editor);
@@ -155,30 +151,19 @@ class ShoppingStreetController extends Controller
 
     // マイページ（ログインした管理者の商店街のお知らせ一覧を表示する）
     public function mypage() {
-        // $editor = Auth::user(); // ログインユーザーを取得
+        // ログインユーザー (editorsテーブルのレコード) を取得
+        $editor = Auth::user(); 
 
-        // 現在ログイン中の管理者idを取得(editorsテーブルのidを取得)
-        $editorId = Auth::id(); 
-
-        // where('id', $editorId)により, shopping_streetsテーブルにおいて, idが$editorIdに一致するようなレコードを検索する. 
-        // なので, $shoppingStreetにはある商店街のレコードが入る. 
-        $shoppingStreet = ShoppingStreet::where('id', $editorId)->first();
+        // 商店街 (shopping_streetsテーブルのレコード) を取得
+        $shoppingStreet = ShoppingStreet::find($editor->shopping_street_id);
         if (!$shoppingStreet) {
             abort(403, 'アクセス権がありません');
         }
 
-        // noticesテーブルにおいて, shopping_street_id == $editorIdとなるレコードをすべて取得. 
-        $notices = Notice::where('shopping_street_id', $editorId)
+        // 該当する商店街のレコードを降順ですべて取得（ただし8レコードごとにページネーション）
+        $notices = Notice::where('shopping_street_id', $shoppingStreet->id)
             ->orderBy('id', 'desc')
             ->paginate(8);
-
-        // $notices = Notice::where('shopping_street_id', function ($query) use ($name) {
-        //     $query->select('id')
-        //         ->from('shopping_streets')
-        //         ->where('slug', $name); // 該当する商店街のお知らせのみを取り出す. 
-        // })
-        // ->orderBy('id', 'desc') // idについての降順で表す
-        // ->paginate(8); // 10件ずつ取得  
 
         return view('editor.mypage', compact('shoppingStreet', 'notices'));
     }
@@ -196,8 +181,8 @@ class ShoppingStreetController extends Controller
     // お知らせ作成フォーム
     public function createNotice()
     {
-        $editorId = Auth::id();
-        $shoppingStreet = ShoppingStreet::where('id', $editorId)->first();
+        $editor = Auth::user();
+        $shoppingStreet = ShoppingStreet::find($editor->shopping_street_id);
         if (!$shoppingStreet) {
             abort(403, 'アクセス権がありません');
         }
@@ -211,13 +196,7 @@ class ShoppingStreetController extends Controller
         $editor = Auth::user(); // 管理者レコード（ID, パスなどの配列）を取得
         $shoppingStreetId = $editor->shopping_street_id; // 商店街IDを取得
 
-        // 該当するidを持つ商店街レコードを取得
-        // $shoppingStreet = ShoppingStreet::where('id', $editor->shopping_street_id)->first();
-        // if (!$shoppingStreet) { // $shoppingStreetが見つからないとき用
-        //     abort(403, 'アクセス権がありません');
-        // }
-
-        // 入力文字列に制約を付ける（requiredで必須に & max:255で255文字以内に）
+        // 入力文字列に制約を付ける（requiredで必須入力に & max:255で255文字以内に）
         $request->validate([
             'title' => 'required|max:255',
             'body' => 'required',
@@ -239,7 +218,6 @@ class ShoppingStreetController extends Controller
         ]);
 
         if($lastNotice){
-            // $newNotice->prev_id = $lastNotice->id; →これだとデータベースに反映されない
             $newNotice->update(['prev_id' => $lastNotice->id]);
             $lastNotice->update(['next_id' => $newNotice->id]);
         }
@@ -250,7 +228,6 @@ class ShoppingStreetController extends Controller
     // お知らせ編集フォーム
     public function editNotice(Notice $notice)
     {
-        // $editorId = Auth::id();
         $editor = Auth::user();
         if ($notice->shopping_street_id !== $editor->shopping_street_id) {
             abort(403, 'アクセス権がありません');
@@ -262,9 +239,9 @@ class ShoppingStreetController extends Controller
     // フォームで編集したお知らせの更新
     public function updateNotice(Request $request, Notice $notice)
     {
-        $editorId = Auth::id();
+        $editor = Auth::user();
 
-        if ($notice->shopping_street_id !== $editorId) {
+        if ($notice->shopping_street_id !== $editor->shopping_street_id) {
             abort(403, 'アクセス権がありません');
         }
 
@@ -284,17 +261,14 @@ class ShoppingStreetController extends Controller
     // お知らせの削除
     public function deleteNotice(Notice $notice)
     {
-        // $editorId = Auth::id();
         $editor = Auth::user();
 
-        // if ($notice->shopping_street_id !== $editorId) {
         if($notice->shopping_street_id !== $editor->shopping_street_id){
             abort(403, 'アクセス権がありません');
         }
 
         // 前後の記事のprev_id, next_idを更新
-        // $prevNotice = Notice::where('id', $notice->prev_id)->first();
-        $prevNotice = Notice::find($notice->prev_id); // 上記よりこっちの方が効率的
+        $prevNotice = Notice::find($notice->prev_id);
         $nextNotice = Notice::find($notice->next_id); 
         if($prevNotice){
             $prevNotice->update(['next_id' => $notice->next_id]);

@@ -1,17 +1,10 @@
 <?php
 
 use App\Http\Controllers\ShoppingStreetController;
-use App\Http\Controllers\EditorController;
-// use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\AccessController;
-use App\Http\Controllers\MapController;
-use App\Http\Controllers\NotificationsController;
-use App\Http\Controllers\EditorsController;
-// use App\Http\Controllers\editor\AuthenticatedSessionController;
 use App\Http\Middleware\Auth_editor;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Log;
@@ -60,12 +53,6 @@ Route::prefix('/shopping-street/{name}')->name('shopping-street.')->group(functi
 Route::get('/coming-soon', function () {
     return view('coming-soon');
 })->name('coming-soon');
-
-
-// web.phpの役割：（auth.phpとの違い）
-// ・ログインが必要なページ (/select など) を定義する
-// ・未ログインユーザーを /login にリダイレクトする処理 を定義する
-// ・認証処理 (/login, /logout) は 書かない（auth.php に移動する）
 
 // ログイン済みユーザー用ページ    
 Route::middleware(['auth'])->group(function () {
