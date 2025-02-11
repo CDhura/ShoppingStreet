@@ -1,6 +1,6 @@
 <!-- 「お知らせ」の詳細画面 -->
 
-@extends('layouts.nav')
+@extends('layouts.ss-detail')
 
 @section('title', $notice->title)
 @section('background-image', '/img/shopping-street/' . $name . '/background.jpg')

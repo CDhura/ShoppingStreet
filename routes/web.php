@@ -39,6 +39,9 @@ Route::prefix('/shopping-street/{name}')->name('shopping-street.')->group(functi
         Route::get('/butcher', [ShoppingStreetController::class, 'mapButcher'])->name('butcher');
         Route::get('/hamburger', [ShoppingStreetController::class, 'mapHamburger'])->name('hamburger');
         Route::get('/shuttered', [ShoppingStreetController::class, 'mapShuttered'])->name('shuttered');
+        Route::get('/flower', [ShoppingStreetController::class, 'mapFlower'])->name('flower');
+        Route::get('/fish', [ShoppingStreetController::class, 'mapFish'])->name('fish');
+        Route::get('/yaoya', [ShoppingStreetController::class, 'mapYaoya'])->name('yaoya');
     });
     Route::prefix('/notifications')->name('notifications.')->group(function () {
         Route::get('/', [ShoppingStreetController::class, 'notifications'])->name('index');
@@ -81,37 +84,6 @@ Route::middleware(['auth'])->group(function () {
 // ログアウト時にリダイレクトされるページ
 Route::get('/goodbye', [ShoppingStreetController::class, 'goodbye'])->name('goodbye');
 
-// 使用していない
-Route::middleware(['auth'])->group(function () {
-    // Route::get('/select', function () {
-    //     return 'ログイン成功！ここは /select です';
-    // })->name('select');
-    // Route::get('/mypage', [EditorController::class, 'mypage'])->name('mypage');
-
-    Route::get('/select', [EditorsController::class, 'select_page'])->name('select');
-    Route::get('/edit', [EditorsController::class, 'edit_page'])->name('edit');
-
-    Route::get('/edit/create', [NotificationsController::class, 'create'])->name('notifications.create');
-    Route::get('/edit/preview/{id}', [EditorsController::class, 'show'])->name('edit.preview');
-    Route::post('/edit/store_for_create', [NotificationsController::class, 'store_for_create'])->name('notifications.store_for_create');
-    Route::get('/edit/{id}', [NotificationsController::class, 'update'])->name('notifications.edit');
-    Route::post('/edit/update/{id}', [NotificationsController::class, 'update'])->name('notifications.update');
-    Route::get('/edit/delete/{id}', [NotificationsController::class, 'delete'])->name('notifications.delete');
-    // Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
-});
-
-// Route::middleware([Auth_editor::class])->group(function () {
-//     Route::get('/select', [EditorsController::class, 'select_page'])->name('select');
-//     Route::get('/edit', [EditorsController::class, 'edit_page'])->name('edit');
-
-//     Route::get('/edit/create', [NotificationsController::class, 'create'])->name('notifications.create');
-//     Route::get('/edit/preview/{id}', [EditorsController::class, 'show'])->name('edit.preview');
-//     Route::post('/edit/store_for_create', [NotificationsController::class, 'store_for_create'])->name('notifications.store_for_create');
-//     Route::get('/edit/{id}', [NotificationsController::class, 'update'])->name('notifications.edit');
-//     Route::post('/edit/update/{id}', [NotificationsController::class, 'update'])->name('notifications.update');
-//     Route::get('/edit/delete/{id}', [NotificationsController::class, 'delete'])->name('notifications.delete');
-//     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
-// });
 
 require __DIR__.'/auth.php';
 

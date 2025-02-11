@@ -1,4 +1,4 @@
-@extends('layouts.nav-top')
+@extends('layouts.top')
 @section('title', 'ログアウト')
 
 @section('content')

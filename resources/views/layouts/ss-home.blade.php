@@ -15,7 +15,7 @@
 </head>
 
 <body class='home' style="background-image: url('{{ asset($backgroundImage) }}');">
-    <x-nav street-name="{{ $name }}"/>
+    <x-nav.shopping-street street-name="{{ $name }}"/>
     <h1 class="TITLE"> @yield('title') </h1>
     @yield('content')
 </body>

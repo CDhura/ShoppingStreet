@@ -1,6 +1,6 @@
 <!-- 「お知らせ」のトップ画面 -->
 
-@extends('layouts.nav')
+@extends('layouts.ss-detail')
 
 @section('title', 'お知らせ')
 @section('background-image', '/img/shopping-street/' . $name . '/background.jpg')

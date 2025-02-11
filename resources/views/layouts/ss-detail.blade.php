@@ -45,7 +45,7 @@
 
 <body class="page">
     <div id="tooltip" style="position: absolute; display: none;"></div>
-    <x-nav street-name="{{ $name }}" />
+    <x-nav.shopping-street street-name="{{ $name }}" />
     
     <div class="content">
         @yield('content')

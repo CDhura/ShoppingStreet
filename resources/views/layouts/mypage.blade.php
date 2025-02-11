@@ -11,7 +11,7 @@
 
 <body class="mypage">
     <div class="background"></div>
-    <x-nav-top />
+    <x-nav.top />
 
     <div class="content">
         @yield('content')

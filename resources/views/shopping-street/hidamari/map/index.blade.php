@@ -1,4 +1,4 @@
-@extends('layouts.nav')
+@extends('layouts.ss-detail')
 @section('title', 'マップページ')
 @section('background-image', '/img/shopping-street/hidamari/background.jpg')
 @section('shopping-street-name', 'hidamari')
@@ -14,42 +14,42 @@
     <area 
         shape="rect" 
         coords="1005,277,8051230,467" 
-        href="{{ route('shopping-street.map.butcher', ['name' => 'hidamari']) }}" 
+        href="{{ route('shopping-street.map.butcher', ['name' => $name]) }}" 
         alt="butcher" 
         data-tooltip="お肉屋 #お肉 #コロッケ"
     >
     <area 
         shape="rect" 
         coords="770,140,987,340" 
-        href="{{ route('shopping-street.map.shuttered', ['name' => 'hidamari']) }}" 
+        href="{{ route('shopping-street.map.shuttered', ['name' => $name]) }}" 
         alt="shuttered Shop1" 
         data-tooltip="シャッター店 #新店舗募集中"
     >
     <area 
         shape="rect" 
         coords="505,0,738,197" 
-        href="{{ route('coming-soon') }}" 
+        href="{{ route('shopping-street.map.flower', ['name' => $name]) }}" 
         alt="shuttered Shop1" 
         data-tooltip="花屋～離島花屋～ #きれいなお花売ってます"
         >
     <area 
         shape="rect" 
         coords="90,236,313,422" 
-        href="{{ route('coming-soon') }}" 
+        href="{{ route('shopping-street.map.yaoya', ['name' => $name]) }}" 
         alt="shuttered Shop1" 
         data-tooltip="八百屋～橘～ #産地直送"
     >
     <area 
         shape="rect" 
         coords="328,391,526,583" 
-        href="{{ route('coming-soon') }}" 
+        href="{{ route('shopping-street.map.fish', ['name' => $name]) }}" 
         alt="shuttered Shop1" 
         data-tooltip="魚屋～錦魚～ #〆鯖あります"
     >
     <area 
         shape="rect" 
         coords="591,508,811,703"
-        href="{{ route('shopping-street.map.shuttered', ['name' => 'hidamari']) }}" 
+        href="{{ route('shopping-street.map.shuttered', ['name' => $name]) }}" 
         alt="shuttered Shop1" 
         data-tooltip="シャッター店 #新店舗募集中"
     >

@@ -24,7 +24,6 @@ class ShoppingStreetController extends Controller
     // サイト全体のトップページ
     public function index()
     {
-        // return view('shopping-street.index', ['streets' => $this->validStreets]);
         return view('index', ['streets' => $this->validStreets]);
     }
 
@@ -42,23 +41,35 @@ class ShoppingStreetController extends Controller
         $this->validateStreet($name);
         return view("shopping-street.{$name}.map.index", compact('name'));
     }
-
     public function mapButcher($name)
     {
         $this->validateStreet($name);
         return view("shopping-street.{$name}.map.butcher", compact('name'));
     }
-
     public function mapShuttered($name)
     {
         $this->validateStreet($name);
         return view("shopping-street.{$name}.map.shuttered", compact('name'));
     }
-
     public function mapHamburger($name)
     {
         $this->validateStreet($name);
         return view("shopping-street.{$name}.map.hamburger", compact('name'));
+    }
+    public function mapFlower($name)
+    {
+        $this->validateStreet($name);
+        return view("shopping-street.{$name}.map.flower", compact('name'));
+    }
+    public function mapFish($name)
+    {
+        $this->validateStreet($name);
+        return view("shopping-street.{$name}.map.fish", compact('name'));
+    }
+    public function mapYaoya($name)
+    {
+        $this->validateStreet($name);
+        return view("shopping-street.{$name}.map.yaoya", compact('name'));
     }
 
 
@@ -307,24 +318,4 @@ class ShoppingStreetController extends Controller
     public function goodbye(){
         return view('goodbye');
     }
-
-
-
-
-    // public function noticeShow($id)
-    // {        
-    //     // 現在のレコードを取得
-    //     $notification = Notice::where('id', $id)->firstOrFail();
-
-    //     return view('editor.preview', ['notification'=>$notification]);
-    // }
-    // public function editPage()
-    // {
-    //     $notifications = Notice::all();
-    //     return view('editor.edit', ['notifications'=>$notifications]);
-    // }       
-    // public function selectPage()
-    // {
-    //     return view('editor.select', );
-    // }
 }

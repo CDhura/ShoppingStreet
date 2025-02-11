@@ -11,7 +11,7 @@
 <body class="top">
     <div class="background"></div>
     <div id="tooltip" style="position: absolute; display: none;"></div>
-    <x-nav-top />
+    <x-nav.top />
 
     @yield('content')
 

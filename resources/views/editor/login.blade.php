@@ -9,7 +9,7 @@
 
 </head>
 <body class="login-body">
-    <x-nav-top />
+    <x-nav.top />
 
     <div class="login-container">
         <h2>管理者ログイン</h2>

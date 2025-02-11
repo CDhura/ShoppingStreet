@@ -1,11 +1,11 @@
-@extends('layouts.nav')
+@extends('layouts.ss-detail')
 
 @section('title', 'アクセス')
 @section('background-image', '/img/shopping-street/hidamari/background.jpg')
 @section('shopping-street-name', 'hidamari') 
 
 @section('content')
-    <h1 class='tytle'>アクセス情報</h1>
+    <h1 class='title'>アクセス情報</h1>
     <h2>所在地　：〇〇県〇〇市<br>
     電話番号：0120-xxx-xxx</h2>
     <ul class="left-align">

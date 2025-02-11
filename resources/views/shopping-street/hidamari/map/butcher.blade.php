@@ -1,4 +1,4 @@
-@extends('layouts.nav')
+@extends('layouts.ss-detail')
 
 @section('title', 'お肉屋')
 @section('background-image', '/img/shopping-street/hidamari/background.jpg')
@@ -53,10 +53,7 @@
             <li style="text-align: left">ロースうす切</li>
         </ul>
     </div>
-    <div>
-        <a href="{{ route('shopping-street.map.index', ['name' => 'hidamari']) }}" class="custom-button">イラストMAPに戻る</a>
-    </div>
-
-
+    
+    <x-transition.back-to-map name="{{ $name }}" />
 
 @endsection

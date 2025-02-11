@@ -1,4 +1,4 @@
-@extends('layouts.nav')
+@extends('layouts.ss-detail')
 @section('title', 'マップページ')
 @section('background-image', '/img/shopping-street/' . $name . '/background.jpg')
 @section('shopping-street-name', $name)

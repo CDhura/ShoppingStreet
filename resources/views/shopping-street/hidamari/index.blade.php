@@ -1,4 +1,4 @@
-@extends('layouts.home')
+@extends('layouts.ss-home')
 @section('title', '陽だまり商店街')
 @section('background-image', 'img/shopping-street/hidamari/background.jpg')
 

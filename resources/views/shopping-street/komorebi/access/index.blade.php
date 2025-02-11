@@ -1,4 +1,4 @@
-@extends('layouts.nav')
+@extends('layouts.ss-detail')
 
 @section('title', 'アクセス')
 @section('background-image', '/img/shopping-street/komorebi/background.jpg')

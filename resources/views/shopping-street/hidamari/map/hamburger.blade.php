@@ -1,4 +1,4 @@
-@extends('layouts.nav')
+@extends('layouts.ss-detail')
 
 @section('title', '佐々木バーガー')
 @section('background-image', '/img/shopping-street/hidamari/background.jpg')
@@ -19,8 +19,6 @@
     皆さんも是非一度食べに来てください！！
     <img src="{{ asset('img/sasaki.jpeg') }}" usemap="#storemap" alt="Store Map" width=1200>
 
-    <div>
-        <a href="{{ route('shopping-street.map.index', ['name' => 'hidamari']) }}" class="custom-button">イラストMAPに戻る</a>
-    </div>
+    <x-transition.back-to-map name="{{ $name }}" />
 
 @endsection

@@ -1,4 +1,4 @@
-@extends('layouts.nav-top')
+@extends('layouts.top')
 @section('title', '地域商店街応援 ジモマップ')
 
 @section('content')

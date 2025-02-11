@@ -18,15 +18,11 @@
             <label for="body">本文:</label>
             <textarea name="body" id="body" class="create-form-control large-textarea" required></textarea>
         </div>
-        <button type="submit" class="notice-create-button2">追加</button>
+        <button type="submit" class="notice-create-button2">確定</button>
     </form>
 </div>
 
-<div class="custom-button">
-    <a href="{{ route('mypage') }}" >
-        管理者用ページに戻る
-    </a>
-</div>
+<x-transition.back-to-mypage />
 
 @endsection
 
